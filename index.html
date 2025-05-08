@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rupa's Cervejaria - Cardápio</title>
+    <style>
+        :root {
+            --bg-dark: #1a1a1a;
+            --bg-darker: #121212;
+            --accent: #FFD700;
+            --text-light: #f5f5f5;
+            --text-gray: #cccccc;
+            --card-bg: #2a2a2a;
+            --section-line: #333333;
+            --tab-bg: #252525;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-darker);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--bg-dark);
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        h1 {
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .subtitle {
+            color: var(--text-gray);
+            font-style: italic;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tabs-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            background-color: var(--tab-bg);
+            border-bottom: 1px solid var(--section-line);
+            padding: 0.5rem;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 0.8rem;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-gray);
+            text-align: center;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            border-radius: 5px;
+        }
+
+        .tab:hover {
+            color: var(--accent);
+            background-color: rgba(255, 215, 0, 0.1);
+        }
+
+        .tab.active {
+            color: var(--accent);
+            background-color: var(--bg-dark);
+        }
+
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease-in-out;
+            padding: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .menu-item {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            padding: 1rem;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+
+        .item-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .item-price {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .item-description {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            text-align: center;
+            padding: 1rem;
+            margin-top: 3rem;
+            border-top: 1px solid var(--section-line);
+            font-size: 0.9rem;
+        }
+
+        @media (min-width: 768px) {
+            .tabs-container {
+                justify-content: center;
+            }
+
+            .tab {
+                flex: none;
+                padding: 1.2rem 2rem;
+                font-size: 0.95rem;
+            }
+
+            .menu-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>RUPA'S CERVEJARIA</h1>
+        <p class="subtitle">Seu ambiente, seu sabor</p>
+
+        <div class="tabs-container">
+            <div class="tab active" data-tab="chopp">Chopp</div>
+            <div class="tab" data-tab="drinks">Drinks</div>
+            <div class="tab" data-tab="soft-drinks">Soft Drinks</div>
+            <div class="tab" data-tab="doses">Doses</div>
+            <div class="tab" data-tab="petiscos">Petiscos</div>
+        </div>
+    </header>
+
+    <main>
+        <div id="chopp" class="tab-content active">
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Pilsen Rupa's (400ml)</span>
+                        <span class="item-price">R$ 12,90</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Red Ale Rupa's (400ml)</span>
+                        <span class="item-price">R$ 14,90</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Stout Rupa's (400ml)</span>
+                        <span class="item-price">R$ 16,90</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="drinks" class="tab-content">
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Caipirinha</span>
+                        <span class="item-price">R$ 16,90</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Caipvodka</span>
+                        <span class="item-price">R$ 18,90</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Gin Tônica</span>
+                        <span class="item-price">R$ 18,90</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Drink Morango Monin®</span>
+                        <span class="item-price">R$ 28,90</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Drink Energético (Consulte sabores)</span>
+                        <span class="item-price">R$ 28,90</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Drink Gin Orange</span>
+                        <span class="item-price">R$ 28,90</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Drink Gin Lime</span>
+                        <span class="item-price">R$ 28,90</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="soft-drinks" class="tab-content">
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Suco de Laranja</span>
+                        <span class="item-price">R$ 9,90</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Suco de Abacaxi</span>
+                        <span class="item-price">R$ 9,90</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Limonada Suíça</span>
+                        <span class="item-price">R$ 9,90</span>
+                    </div>
+                </div>
+                                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Limonada Tradicional</span>
+                        <span class="item-price">R$ 9,90</span>
+                    </div>
+                </div>
+                                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Soda Italiana (Consulte sabores) </span>
+                        <span class="item-price">R$ 14,90</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Refrigerante Lata</span>
+                        <span class="item-price">R$ 6,90</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Água Tônica</span>
+                        <span class="item-price">R$ 6,90</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Energético (Consulte sabores)</span>
+                        <span class="item-price">R$ 14,90</span>
+                    </div>
+                </div>
+                                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Água Mineral (s/ gás)</span>
+                        <span class="item-price">R$ 4,90</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Água Mineral (c/ gás)</span>
+                        <span class="item-price">R$ 4,90</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="doses" class="tab-content">
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Whisky</span>
+                        <span class="item-price">R$ 19,90</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Cachaça</span>
+                        <span class="item-price">R$ 8,00</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Vodka</span>
+                        <span class="item-price">R$ 12,00</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Gin</span>
+                        <span class="item-price">R$ 12,00</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Campari</span>
+                        <span class="item-price">R$ 12,00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="petiscos" class="tab-content">
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Almôndega</span>
+                        <span class="item-price">R$ 20,00</span>
+                    </div>
+                    <p class="item-description">140g de carne bovina ao molho pomodori decorada com mussarela, acompanha pão francês.</p>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Carne de Panela</span>
+                        <span class="item-price">R$ 20,00</span>
+                    </div>
+                    <p class="item-description">Acém bovino cozido em molho de tomate e especiarias, acompanha pão francês.</p>
+
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Linguiça de Pernil Acebolada</span>
+                        <span class="item-price">R$ 20,00</span>
+                    </div>
+                    <p class="item-description">Linguiça de pernil fatiadas, aceboladas, acompanha farofa.</p>
+
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Iscas de Frango Empanadas</span>
+                        <span class="item-price">R$ 20,00</span>
+                    </div>
+                    <p class="item-description">200g iscas de frango empanadas na farinha de rosca. Acompanha molho rosê.</p>
+
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Iscas de Frango com Requeijão</span>
+                        <span class="item-price">R$ 20,00</span>
+                    </div>
+                    <p class="item-description">200g iscas de frango acebolada com requeijão.</p>
+
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Quibe</span>
+                        <span class="item-price">R$ 8,00</span>
+                    </div>
+                    <p class="item-description">Porção por unidade.</p>
+
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Fritas</span>
+                        <span class="item-price">R$ 20,00</span>
+                    </div>
+                    <p class="item-description">300g de batatas palito.</p>
+
+                </div>
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Torresmo</span>
+                        <span class="item-price">R$ 20,00</span>
+                    </div>
+                    <p class="item-description">Porção de pele de suíno pururucada.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Rupa's Cervejaria</p>
+        <p>📍 Av Francisco Sá, 1114 - Belo Horizonte/MG</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+
+                    this.classList.add('active');
+                    const targetContent = document.getElementById(this.getAttribute('data-tab'));
+                    targetContent.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
